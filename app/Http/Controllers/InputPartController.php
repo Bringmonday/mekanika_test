@@ -141,12 +141,10 @@ class InputPartController extends Controller
 
     public function getModels(Request $request)
     {
-        // Retrieve the fields specified in the InputPart model.
         $spareparts = InputPart::select('id','model_name' ,'part_name', 'part_code', 'part_number', 'qty_in_cart', 'is_active')->get();
     
         return DataTables::of($spareparts)
             ->addColumn('action', function($row) {
-                // Define buttons for editing and deleting models with their respective IDs.
                 return '<button class="btn btn-sm btn-primary edit-model" data-id="' . $row->id . '">
                             <i class="fas fa-edit"></i>
                         </button>
@@ -154,9 +152,7 @@ class InputPartController extends Controller
                             <i class="fas fa-trash"></i>
                         </button>';
             })
-            // Enable raw HTML for action buttons.
             ->rawColumns(['action'])
-            // Return the response in JSON format.
             ->make(true);
     }
     

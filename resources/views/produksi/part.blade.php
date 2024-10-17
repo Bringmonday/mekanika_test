@@ -237,9 +237,9 @@ $(document).ready(function() {
                 }
             },
             { data: 'model_name', name: 'model_name' },
-            { data: 'part_name', name: 'part_name' },  // Updated to match your database
-            { data: 'part_number', name: 'part_number' }, // Updated to match your database
-            { data: 'part_code', name: 'part_code' }, // Updated to match your database
+            { data: 'part_name', name: 'part_name' },  
+            { data: 'part_number', name: 'part_number' }, 
+            { data: 'part_code', name: 'part_code' }, 
             { data: 'qty_in_cart', name: 'qty_in_cart' }, 
             { 
                 data: 'image_illus_fix', 
@@ -287,7 +287,7 @@ $(document).ready(function() {
     });
 
     $('#modelSearch').on('keyup', function() {
-        table.search(this.value).draw();  // Trigger search with DataTables
+        table.search(this.value).draw();  
     });
 
     $('#addNewModel').on('click', function() {
@@ -296,13 +296,13 @@ $(document).ready(function() {
 
     // Submit new model
     $('#submitModel').on('click', function() {
-        var formData = new FormData($('#modelForm')[0]); // Create FormData object
+        var formData = new FormData($('#modelForm')[0]); 
         $.ajax({
             type: 'POST',
             url: '{{ route('part.add') }}',
             data: formData,
-            processData: false, // Prevent jQuery from automatically transforming the data into a query string
-            contentType: false, // Prevent jQuery from overriding the content type
+            processData: false, 
+            contentType: false, 
             success: function(response) {
                 $('#modelModal').modal('hide');
                 table.ajax.reload(); 
@@ -353,7 +353,7 @@ $(document).ready(function() {
 
     // Update model
     $('#updateModel').on('click', function() {
-        var formData = new FormData($('#editModelForm')[0]); // Create FormData object
+        var formData = new FormData($('#editModelForm')[0]); 
         $.ajax({
             type: 'POST',
             url: '{{ route('part.update') }}',

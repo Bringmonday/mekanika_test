@@ -194,7 +194,7 @@ $(document).ready(function() {
     });
 
     $('#modelSearch').on('keyup', function() {
-        table.search(this.value).draw();  // Trigger search with DataTables
+        table.search(this.value).draw();  
     });
 
 
